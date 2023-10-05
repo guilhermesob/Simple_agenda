@@ -1,4 +1,4 @@
-agenda = {}  # Inicializa um dicionário vazio para a agenda
+agenda = {}  # Inicializa um dicionário vazio para a agenda.
 
 def adicionar_evento():
     data = input("Digite a data do evento (formato DD/MM/AAAA): ")

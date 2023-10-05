@@ -83,6 +83,17 @@ def desmarcar_tarefas():
     else:
         print("Objetivo inválido.")
 
+def remover_evento():
+    data = input("Digite a data do evento que deseja remover (formato DD/MM/AAAA): ")
+    evento = input("Digite o nome do evento que deseja remover: ")
+
+    if data in agenda and evento in agenda[data]:
+        # Se a data e o evento existirem na agenda, remova o evento
+        agenda[data].remove(evento)
+        print("Evento removido com sucesso!")
+    else:
+        print("Evento não encontrado na agenda.")
+
 while True:
     print("\n** Agenda, Objetivos e Tarefas **")
     print("Escolha uma opção:")
@@ -91,7 +102,8 @@ while True:
     print("3. Exibir objetivos e tarefas")
     print("4. Marcar tarefas como concluídas")
     print("5. Desmarcar tarefas como não concluídas")
-    print("6. Sair")
+    print("6. Remover evento da agenda")
+    print("7. Sair")
 
     escolha = input("Digite o número da opção: ")
 
@@ -107,6 +119,8 @@ while True:
     elif escolha == "5":
         desmarcar_tarefas()
     elif escolha == "6":
+        remover_evento()
+    elif escolha == "7":
         print("Saindo do programa.")
         break
     else:

@@ -1,14 +1,28 @@
-agenda = {}  # Inicializa um dicionário vazio para a agenda.
+# Inicializa um dicionário vazio para a agenda
+agenda = {}
+
+# Inicializa os objetivos e tarefas
+objetivos = {
+    "Manhã": ["Alongamentos", "Banho e escovação dos dentes", "Café da manhã e preparação para a academia"],
+    "Atividades Físicas": ["Primeira corrida", "Treino na academia", "Alongamentos pós-treino", "Visitar pessoas próximas", "Shake de proteína e banho", "Estacas ou atividades semelhantes"],
+    "Meio-Dia": ["Almoço", "Revisão pós-almoço"],
+    "Tarde": ["Trabalho em engenharia de software e estudo de redes", "Atividades físicas (shadow box e capoeira com idiomas)", "Estacas ou atividades semelhantes", "Continuação do trabalho em engenharia de software e redes", "Jantar"],
+    "Noite": ["Desenho (a cada dois dias)", "Tempo livre / relaxamento", "Hora de dormir"],
+}
+
+# Inicializa as tarefas concluídas
+tarefas_concluidas = {meta: [] for meta in objetivos}
+
+# Inicializa a pontuação
+pontuacao = 0
 
 def adicionar_evento():
     data = input("Digite a data do evento (formato DD/MM/AAAA): ")
     evento = input("Digite o nome do evento: ")
     
     if data in agenda:
-        # Se a data já estiver na agenda, adiciona o evento à lista existente
         agenda[data].append(evento)
     else:
-        # Se a data não estiver na agenda, cria uma nova lista com o evento
         agenda[data] = [evento]
     
     print("Evento adicionado com sucesso!")
@@ -20,17 +34,6 @@ def mostrar_agenda():
         for evento in eventos:
             print(f"- {evento}")
     print("---\n")
-
-objetivos = {
-    "Manhã": ["Alongamentos", "Banho e escovação dos dentes", "Café da manhã e preparação para a academia"],
-    "Atividades Físicas": ["Primeira corrida", "Treino na academia", "Alongamentos pós-treino", "Visitar pessoas próximas", "Shake de proteína e banho", "Estacas ou atividades semelhantes"],
-    "Meio-Dia": ["Almoço", "Revisão pós-almoço"],
-    "Tarde": ["Trabalho em engenharia de software e estudo de redes", "Atividades físicas (shadow box e capoeira com idiomas)", "Estacas ou atividades semelhantes", "Continuação do trabalho em engenharia de software e redes", "Jantar"],
-    "Noite": ["Desenho (a cada dois dias)", "Tempo livre / relaxamento", "Hora de dormir"],
-}
-
-tarefas_concluidas = {meta: [] for meta in objetivos}
-pontuacao = 0
 
 def exibir_objetivos_e_tarefas():
     global pontuacao
@@ -88,7 +91,6 @@ def remover_evento():
     evento = input("Digite o nome do evento que deseja remover: ")
 
     if data in agenda and evento in agenda[data]:
-        # Se a data e o evento existirem na agenda, remova o evento
         agenda[data].remove(evento)
         print("Evento removido com sucesso!")
     else:

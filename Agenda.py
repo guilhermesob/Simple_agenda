@@ -1,4 +1,4 @@
-# Inicializa um dicionário vazio para a agenda
+#  Inicializa um dicionário vazio para a agenda
 agenda = {}
 
 # Inicializa os objetivos e tarefas
